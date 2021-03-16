@@ -1,0 +1,16 @@
+# conf file must be in same directory as script
+
+[json]
+app_name = Webroot EventLogs
+version = 1.0
+
+[webroot]
+server_url = https://unityapi.webrootcloudav.com
+pid_file = ./webrootEventLogs.pid
+username = 
+password = 
+client_id = 
+client_secret = 
+site_name = 
+gsm_key = 
+state_dir = ./state
