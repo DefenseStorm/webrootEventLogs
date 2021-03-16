@@ -18,15 +18,11 @@ from html.parser import HTMLParser
 
 class integration(object):
 
-    audit_JSON_field_mappings = {
-        'description' : 'message',
-        'eventTime' : 'timestamp',
-        'eventId' : 'event_id',
-        'loginName' : 'username',
-        'orgName' : 'organization_name'
-    }
-
     JSON_field_mappings = {
+            'FileName': 'file_name',
+            'PathName': 'file_path',
+            'LastSeen': 'timestamp',
+            'GroupId': 'group_id'
     }
 
     def read_input_file(self, filename):
@@ -189,6 +185,7 @@ class integration(object):
 
         for threat in threat_list:
             threat['category'] = 'threat'
+            threat['message'] = 'Threat Detected - ' + threat['MalwareGroup']
             self.ds.writeJSONEvent(threat, JSON_field_mappings = self.JSON_field_mappings)
 
         self.ds.set_state(self.state_dir, self.current_run)
